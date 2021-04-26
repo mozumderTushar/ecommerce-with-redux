@@ -1,11 +1,15 @@
 import React from 'react';
 import Product from './Product/Product';
-import Grid from '@material-ui/core/Grid';
+import useStyles from './styles';
 
 const Products = () => {
+  const classes = useStyles();
   return (
     <div>
-      <Product />
+      <main className={classes.content}>
+        <div className={classes.toolbar} />
+        <Product />
+      </main>
     </div>
   );
 };

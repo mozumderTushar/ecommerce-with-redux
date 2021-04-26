@@ -6,11 +6,13 @@ import {
   Link
 } from "react-router-dom";
 import Products from '../Products/Products';
+import NavBar from '../NavBar/NavBar';
 
 function App() {
   return (
     <div className="App">
      <Router>
+       <NavBar />
        <Switch>
          <Route exact path="/"><Products /></Route>
        </Switch>
