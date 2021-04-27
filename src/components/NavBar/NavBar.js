@@ -1,11 +1,14 @@
 import React from 'react';
 import { AppBar, Toolbar, IconButton, Badge, MenuItem, Menu, Typography } from '@material-ui/core';
 import { ShoppingCart } from '@material-ui/icons';
-
+import { Link, useLocation } from 'react-router-dom';
 import useStyles from './styles';
+import { useSelector } from 'react-redux';
 
 const NavBar = () => {
   const classes = useStyles();
+  const totalItem = useSelector((state) => state.cartItems.carts)
+  console.log('totalItemNav',totalItem);
   return (
     <div>
       <AppBar position="fixed" className={classes.appBar} color="inherit">
@@ -15,8 +18,8 @@ const NavBar = () => {
           </Typography>
           <div className={classes.grow} />
             <div className={classes.button}>
-              <IconButton  aria-label="Show cart items" color="inherit">
-                <Badge badgeContent={2} color="secondary">
+              <IconButton component={Link} to="/cart" aria-label="Show cart items" color="inherit">
+                <Badge badgeContent={totalItem.total_items || totalItem.cart?.total_items} color="secondary">
                   <ShoppingCart />
                 </Badge>
               </IconButton>

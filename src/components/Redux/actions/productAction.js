@@ -6,3 +6,10 @@ export const setProduct = (product) => {
     payload: product
   }
 }
+
+export const setCart = (cartItem) => {
+  return {
+    type: ActionTypes.SET_CART,
+    payload: cartItem
+  }
+}
